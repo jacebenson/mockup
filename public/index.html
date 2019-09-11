@@ -1,125 +1,143 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<title>Responsive Mockups</title>
-  <meta name="description" content="Show mockups in
+    <meta charset="utf-8">
+    <title>Responsive Mockups</title>
+    <meta name="description" content="Show mockups in
   this 4 in 1 viewport tool. See how your site looks on desktop, laptop, ipad & iphone.">
-	<link rel="stylesheet" href="../css/ami.css">
-	<meta name="viewport" content="width=device-width">
-<script type="text/javascript">
-/*
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-30791350-1']);
-  _gaq.push(['_trackPageview']);
+    <link rel="stylesheet" href="../css/ami.css">
+    <meta name="viewport" content="width=device-width">
+    <script type="text/javascript">
+        /*
+                  var _gaq = _gaq || [];
+                  _gaq.push(['_setAccount', 'UA-30791350-1']);
+                  _gaq.push(['_trackPageview']);
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-*/
-</script>
+                  (function() {
+                    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                  })();
+                */
+    </script>
 </head>
+
 <body class="ami">
-<div class="wrapper">
+    <div class="wrapper">
 
-</section>
-</div>
-<section class="url">
-<h1>See your site responsive</h1>
-<form id="rwdform" name="rwdform">
-<input type="url" id="url" name="url" value=""  placeholder="https://kjweb.dev">
+        </section>
+    </div>
+    <section class="url">
+        <h1>See your site responsive</h1>
+        <form id="rwdform" name="rwdform">
+            <input type="url" id="url" name="url" value="" placeholder="https://example.com">
 
-<a class="button" href="#">GO!</a>
-</form>
+            <a class="button" href="#">GO!</a>
+        </form>
 
-<div class="about-tool">
+        <div class="about-tool">
 
-</section>
-<section class="display">
-<div class="mobile">
-  <iframe id="mobile" src="https://kjweb.dev">
+    </section>
+    <section class="display">
+        <div class="mobile">
+            <iframe id="mobile" src="https://example.com">
   </iframe>
-</div>
+        </div>
 
-<div class="tablet">
-  <iframe id="tablet" src="https://kjweb.dev">
+        <div class="tablet">
+            <iframe id="tablet" src="https://example.com">
   </iframe>
-</div>
-<div class="laptop">
-  <iframe id="laptop" src="https://kjweb.dev">
+        </div>
+        <div class="laptop">
+            <iframe id="laptop" src="https://example.com">
   </iframe>
-</div>
-<div class="desktop">
-  <iframe id="desktop" src="https://kjweb.dev">
+        </div>
+        <div class="desktop">
+            <iframe id="desktop" src="https://example.com">
   </iframe>
-</div>
+        </div>
 
-<script src="//code.jquery.com/jquery-latest.js"></script>
-<script src="//code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
-  <script>
-$(document).ready(function() {
-// Change iFrame on a Button Click Event
-    $(".button").click(function(event){
-        $("iframe").attr('src', $( '#url' ).val());
-    });
-});
-  </script>
-  <script>
-$(document).ready(function() {
-    var a = 3;
-    $('.desktop,.laptop,.tablet,.mobile').draggable({
-   start: function(event, ui) { $(this).css("z-index", a++); }
-});
-    $('.display div').click(function() {
-        $(this).addClass('top').removeClass('bottom');
-        $(this).siblings().removeClass('top').addClass('bottom');
-        $(this).css("z-index", a++);
+        <script src="//code.jquery.com/jquery-latest.js"></script>
+        <script src="//code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+        <script>
+            $(document).ready(function() {
+                // Change iFrame on a Button Click Event
+                $(".button").click(function(event) {
+                    $("iframe").attr('src', $('#url').val());
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function() {
+                var a = 3;
+                $('.desktop,.laptop,.tablet,.mobile').draggable({
+                    start: function(event, ui) {
+                        $(this).css("z-index", a++);
+                    }
+                });
+                $('.display div').click(function() {
+                    $(this).addClass('top').removeClass('bottom');
+                    $(this).siblings().removeClass('top').addClass('bottom');
+                    $(this).css("z-index", a++);
 
-    });
-});
-</script>
+                });
+            });
+        </script>
 
-<script>
+        <script>
+            function getUrlVars() {
+                var vars = {};
+                var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+                    vars[key] = value;
+                });
+                return vars;
+            }
+            var first = getUrlVars()["url"];
+            var first = decodeURIComponent(first);
+            var first = first.replace(/\#$/, '');
 
-function getUrlVars() {
-    var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-        vars[key] = value;
-    });
-    return vars;
-}
-var first = getUrlVars()["url"]; 
-var first = decodeURIComponent(first);
-var first = first.replace(/\#$/, '');
-
-if(first === "undefined") {
-  // don't do anything.
-}
-else {
-//  take the url variable and update the iframes and input field
-  $("iframe").attr('src',(first));
-  $('#url').attr('value',(first));
-}
-</script>
+            if (first === "undefined") {
+                // don't do anything.
+            } else {
+                //  take the url variable and update the iframes and input field
+                $("iframe").attr('src', (first));
+                $('#url').attr('value', (first));
+            }
+        </script>
 
 
 
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        <script>
+            ! function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, "script", "twitter-wjs");
+        </script>
 
-<!-- Place this tag after the last +1 button tag. -->
-<script type="text/javascript">
-  window.___gcfg = {lang: 'en-GB'};
+        <!-- Place this tag after the last +1 button tag. -->
+        <script type="text/javascript">
+            window.___gcfg = {
+                lang: 'en-GB'
+            };
 
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
+            (function() {
+                var po = document.createElement('script');
+                po.type = 'text/javascript';
+                po.async = true;
+                po.src = 'https://apis.google.com/js/plusone.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(po, s);
+            })();
+        </script>
 
 
 
 </body>
+
 </html>
